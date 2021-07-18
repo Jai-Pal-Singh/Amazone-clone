@@ -9,7 +9,7 @@ import CheckoutProduct from "../checkout-module/CheckoutProduct";
 import "./Payment.css";
 
 function Payment() {
-  const [state] = useStateValue();
+  const [state, dispatch] = useStateValue();
   const stripe = useStripe();
   const elements = useElements();
   const [error, setError] = useState(null);
@@ -21,12 +21,12 @@ function Payment() {
 
   useEffect(() => {
     //generate the special stripe secret which allows us to charge a customer
-    
+
     const total = getBasketTotal(state.basket) * 100;
     const getClientSecret = async () => {
       const response = await axios({
         method: "POST",
-        url: `/payments/create?total=`+total,
+        url: `/payments/create?total=` + total,
       });
       setClientSecret(response.data.clientSecret);
     };
@@ -50,6 +50,10 @@ function Payment() {
         setSucceeded(true);
         setError(null);
         setProcessing(false);
+
+        dispatch({
+          type: "EMPTY_BASKET",
+        });
 
         history.replace("/orders");
       });

@@ -48,6 +48,10 @@
   padding: 5px;
 }
 
+.header__option > span a {
+  text-decoration: none;
+}
+
 .header__option:hover {
   border: 1px solid white;
 }

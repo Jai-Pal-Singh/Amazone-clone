@@ -13,11 +13,16 @@ const app = express();
 // - Middlesware
 app.use(cors({ origin: true }));
 app.use(express.json());
+app.all("/", function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  next();
+});
 
 // - API Routes
-app.get("/", (req, res) => res.status(200).send("hello world"));
+app.get("/", (req, res, next) => res.status(200).send("hello world"));
 
-var getClientSecret = async (req, res) => {
+var getClientSecret = async (req, res, next) => {
   const total = req.query.total;
   console.log("Payment request for amount", total);
 
