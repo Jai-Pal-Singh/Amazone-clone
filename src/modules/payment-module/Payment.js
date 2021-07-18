@@ -7,6 +7,7 @@ import { getBasketTotal } from "../../util/reducer";
 import { useStateValue } from "../../util/StateProvider";
 import CheckoutProduct from "../checkout-module/CheckoutProduct";
 import "./Payment.css";
+import { db } from "../../util/firebase.js";
 
 function Payment() {
   const [state, dispatch] = useStateValue();
@@ -47,6 +48,16 @@ function Payment() {
         },
       })
       .then(({ paymentIntent }) => {
+        db.collection("user")
+          .doc(state.user?.uid)
+          .collection("orders")
+          .doc(paymentIntent.id)
+          .set({
+            basket: state.basket,
+            amount: paymentIntent.amount,
+            created: paymentIntent.created,
+          });
+
         setSucceeded(true);
         setError(null);
         setProcessing(false);
@@ -112,7 +123,10 @@ function Payment() {
               <CardElement onChange={handleChange}></CardElement>
               <div className="payment__priceContainer">
                 <h4>Order Total: ₹ {getBasketTotal(state.basket)}</h4>
-                <button disabled={processing || disabled || succeeded}>
+                <button
+                  className="button"
+                  disabled={processing || disabled || succeeded}
+                >
                   <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                 </button>
                 {error && <div>{error}</div>}

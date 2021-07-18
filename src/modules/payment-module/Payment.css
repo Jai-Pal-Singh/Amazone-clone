@@ -30,3 +30,16 @@
 .payment__details {
   flex: 0.7;
 }
+
+.payment__details > form {
+  max-width: 400px;
+}
+
+.payment__details > h4 {
+  padding-bottom: 20px;
+}
+
+.payment__details > form > div > button {
+  font-weight: bolder;
+  margin-top: 10px;
+}
