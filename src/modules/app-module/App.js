@@ -6,10 +6,14 @@ import Checkout from "../checkout-module/Checkout.js";
 import Header from "../header-module/Header.js";
 import Home from "../home-module/Home.js";
 import Login from "../login-module/Login.js";
+import Payment from "../payment-module/Payment.js";
 import "./App.css";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
+const promise = loadStripe("pk_test_51JEFjDSJdvKy4mRr3TGDoI2IcAKRWxJdW8tP2uNuqdspAA2CenF75Euy1uihUoqHU4eajLY97wXrhBU8Tlg6iuon006XaZpFRi");
 function App() {
-  const [{}, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
 
   useEffect(() => {
     //will run only once the App component is loaded
@@ -41,6 +45,12 @@ function App() {
           <Route path="/checkout">
             <Header />
             <Checkout />
+          </Route>
+          <Route path="/payment">
+            <Header />
+            <Elements stripe={promise}>
+              <Payment />
+            </Elements>
           </Route>
           <Route path="/">
             <Header />

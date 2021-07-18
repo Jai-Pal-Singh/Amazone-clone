@@ -1,7 +1,6 @@
 import React from "react";
 import "./Header.css";
 import SearchIcon from "@material-ui/icons/Search";
-// import LocationOnIcon from "@material-ui/icons/LocationOnOutlined";
 import FlagIcon from "@material-ui/icons/Flag";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
@@ -10,13 +9,12 @@ import { auth } from "../../util/firebase";
 
 function Header() {
   const [state, dispatch] = useStateValue();
-
   var handleAuthentication = () => {
     if (state.user) {
       auth.signOut();
       dispatch({
         type: "SET_USER",
-        user: null
+        user: null,
       });
     }
   };
@@ -31,15 +29,6 @@ function Header() {
         />
       </Link>
 
-      {/* <div className="header__nav">
-        <div className="header__optionLocation">
-          <LocationOnIcon className="header__optionLocationIcon" />
-          <div className="header__option">
-            <span className="header__optionLineOne"> Hello</span>
-            <span className="header__optionLineTwo">Select your address</span>
-          </div>
-        </div>
-      </div> */}
       <div className="header__search">
         <input className="header__searchInput" type="text"></input>
         <SearchIcon className="header__searchIcon" />
@@ -54,7 +43,6 @@ function Header() {
             <span className="header__optionLineOne">
               Hello, {state.user ? state.user?.email : "Guest"}
             </span>
-            {/* <span className="header__optionLineOne">Hello, {user.email}</span> */}
             <span className="header__optionLineTwo">
               {state.user ? "Sign Out" : "Sign In"}
             </span>

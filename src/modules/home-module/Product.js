@@ -3,13 +3,15 @@ import { useStateValue } from "../../util/StateProvider";
 import "./Product.css";
 
 function Product({ id, title, price, image, alt, rating }) {
-  const [{}, dispatch] = useStateValue();
+  const [state, dispatch] = useStateValue();
 
   function addToBasket() {
+    let counter = 0;
     //dispatch the item into data layer
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
+        key: id.toString() + counter++,
         id: id,
         title: title,
         price: price,
@@ -21,7 +23,7 @@ function Product({ id, title, price, image, alt, rating }) {
   }
 
   return (
-    <div className="product" id={id}>
+    <div className="product" id={id.toString() + Math.random() * 100}>
       <div className="product__info">
         <p>{title}</p>
         <p className="product__price">
@@ -32,7 +34,7 @@ function Product({ id, title, price, image, alt, rating }) {
           {Array(rating)
             .fill()
             .map((_, i) => (
-              <p>⭐</p>
+              <p key={id.toString() + i}>⭐</p>
             ))}
         </div>
       </div>

@@ -13,21 +13,20 @@
 }
 
 .product > img {
-  max-height: 200px;
+  max-height: 150px;
   width: 100%;
   object-fit: contain;
   margin-bottom: 15px;
 }
 
-/* .product > button {
-  background: #f0c14b;
-  border: 1px solid;
-  margin-top: 10px;
-  border-color: #a88734 #9c7e31 #846a29;
-  color: #111;
-} */
+.product > button {
+  width: 200px;
+  height: 30px;
+}
 
 .product__info {
+  display: flex;
+  flex-direction: column;
   height: 100px;
   /* width: 100%; */
   margin-bottom: 10px;

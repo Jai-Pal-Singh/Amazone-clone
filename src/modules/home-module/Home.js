@@ -15,6 +15,7 @@ function Home() {
         <div className="home__row">
           <Product
             id={1}
+            key={1}
             title="DELL 21.5 inch SE2219HX Ultra Thin Bezel LED Backlit Computer Monitor
           (Black)"
             price={9590.0}
@@ -25,6 +26,7 @@ function Home() {
           />
           <Product
             id={2}
+            key={2}
             title="Logitech MK215 Wireless Keyboard and Mouse Combo for Windows, 2.4 GHz Wireless, Compact Design, 2-Year Battery Life(Keyboard)"
             price={1295.0}
             image="https://images-eu.ssl-images-amazon.com/images/I/71YHTqeOeZL._AC_UL160_SR160,160_.jpg"
@@ -35,14 +37,16 @@ function Home() {
         <div className="home__row">
           <Product
             id={3}
-            title="Seagate Backup Plus Hub 4 TB External HDD - USB 3.0 for Windows and Mac, 3 yr Data Recovery Services, Desktop Hard Drive with 2 USB Ports and 4 Month Adobe CC Photography (STEL4000300)"
+            key={3}
+            title="Seagate Backup Plus Hub 4 TB External HDD - USB 3.0 for Windows and Mac (STEL4000300)"
             price={7599.0}
             image="https://m.media-amazon.com/images/I/51EJKp8POHL._AC._SR360,460.jpg"
-            alt="Seagate Backup Plus Hub 4 TB External HDD - USB 3.0 for Windows and Mac, 3 yr Data Recovery Services, Desktop Hard Drive with 2 USB Ports and 4 Month Adobe CC Photography (STEL4000300)"
+            alt="Seagate Backup Plus Hub 4 TB External HDD - USB 3.0 for Windows and Mac (STEL4000300)"
             rating={5}
           />
           <Product
             id={4}
+            key={4}
             title="Strontium Nitro Plus 64GB Type-C USB 3.1 Flash Drive - OTG Mobile Pen Drive"
             price={1165.0}
             image="https://m.media-amazon.com/images/I/417wt9tmb4L._AC_UL320_.jpg"
@@ -51,7 +55,8 @@ function Home() {
           />
           <Product
             id={5}
-            title="Seagate Game Drive for Xbox 1TB SSD External Solid State Drive, Portable USB 3.0, Designed for Xbox One, with 2 Month Xbox..."
+            key={5}
+            title="Seagate Game Drive for Xbox 1TB SSD External Solid State Drive"
             price={11499.0}
             image="https://m.media-amazon.com/images/I/91mOlV4IxfL._AC_UL320_.jpg"
             alt="Seagate Game Drive for Xbox 1TB SSD External Solid State Drive, Portable USB 3.0, Designed for Xbox One, with 2 Month Xbox..."
@@ -61,6 +66,7 @@ function Home() {
         <div className="home__row">
           <Product
             id={6}
+            key={6}
             title="Netgear Nighthawk XR500 Pro, AC2600 Dual Band Gaming WiFi Router (Black)"
             price={22999.0}
             image="https://m.media-amazon.com/images/I/81K4IHoxEHL._AC_UL320_.jpg"
@@ -69,7 +75,8 @@ function Home() {
           />
           <Product
             id={7}
-            title="Samsung T5 500GB Up to 540MB/s USB 3.1 Gen 2 (10Gbps, Type-C) External Solid State Drive (Portable SSD) Alluring Blue (MU-PA500B)"
+            key={7}
+            title="Samsung T5 External Solid State Drive (Portable SSD) Alluring Blue (MU-PA500B)"
             price={6399.0}
             image="https://m.media-amazon.com/images/I/81oYFsPwVrL._AC_UL320_.jpg"
             alt="Samsung T5 500GB Up to 540MB/s USB 3.1 Gen 2 (10Gbps, Type-C) External Solid State Drive (Portable SSD) Alluring Blue (MU-PA500B)"
@@ -79,6 +86,7 @@ function Home() {
         <div className="home__row">
           <Product
             id={8}
+            key={8}
             title="Samsung 32-inch (80 cm) Curved Gaming Monitor- Full HD, AMD Free Sync - LC32G75TQSWXXL"
             price={55890.0}
             image="https://m.media-amazon.com/images/I/71LpkdG1xUL._AC_UY218_.jpg"
